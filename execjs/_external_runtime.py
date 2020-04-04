@@ -96,7 +96,7 @@ class ExternalRuntime(AbstractRuntime):
 
             p = None
             try:
-                p = Popen(cmd, stdin=PIPE, stdout=PIPE, stderr=PIPE, cwd=self._cwd, universal_newlines=True)
+                p = Popen(cmd, stdin=PIPE, stdout=PIPE, stderr=PIPE, cwd=self._cwd, universal_newlines=True, encoding='utf-8')
                 input = self._compile(source)
                 if six.PY2:
                     input = input.encode(sys.getfilesystemencoding())
